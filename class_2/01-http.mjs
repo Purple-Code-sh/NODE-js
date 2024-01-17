@@ -7,15 +7,15 @@ const processRequest = (req, res) => {
 
   if (req.url === '/') {
     res.statusCode = 200 // OK
-    console.log('User requested: /')
+    console.log('User requested: / ', req.url)
     res.end('<h1>Home Page</h1>')
   } else if (req.url === '/contact') {
     res.statusCode = 200 // OK
-    console.log('User requested: /contact')
+    console.log('User requested: /contact ', req.url)
     res.end('<h1>Contact page</h1>')
   } else {
     res.statusCode = 404 // error
-    console.log('User requested a not valid url')
+    console.log('User requested a not valid url  ', req.url)
     res.end('<h1>404 error</h1>')
   }
 }
