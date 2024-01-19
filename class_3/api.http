@@ -29,3 +29,11 @@ Content-Type: application/json
     "director":"Francis Ford Coppola"
 }
 
+### Updating data
+PATCH  http://localhost:1234/movies/6a360a18-c645-4b47-9a7b-2a71babbf3e0
+
+Content-Type: application/json
+{
+    "year": 2002
+}
+

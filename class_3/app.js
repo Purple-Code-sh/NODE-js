@@ -1,7 +1,7 @@
 const express = require('express')
 const crypto = require('node:crypto')
 const movies = require('./movies.json')
-const { validateMovie } = require('./schemas/movieSchema')
+const { validateMovie, validatePartialMovie } = require('./schemas/movieSchema')
 
 // Config
 
@@ -50,4 +50,27 @@ app.post('/movies', (req, res) => {
   movies.push(newMovie)
 
   res.status(201).json(newMovie)
+})
+
+app.path('/movies/:id', (req, res) => {
+  const result = validatePartialMovie(req.body)
+  if (result.error) {
+    return res.status(404).json(JSON.parse(result.error.message))
+  }
+
+  const { id } = req.params
+  const movieIndex = movies.findIndex(movie => movie.id === id)
+
+  if (movieIndex === -1) {
+    return res.status(404).json({ error: 'Movie not found' })
+  }
+
+  const updatedMovie = {
+    ...movies[movieIndex],
+    ...result.data
+  }
+
+  movies[movieIndex] = updatedMovie
+
+  return res.json(updatedMovie)
 })
