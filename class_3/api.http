@@ -10,7 +10,6 @@ GET http://localhost:1234/movies?genre=AcTIOn
 ### create a new movie
 POST http://localhost:1234/movies
 Content-Type: application/json
-
 {
     "title": "The Godfather",
     "genre": ["Crime","Drama"],
@@ -20,4 +19,13 @@ Content-Type: application/json
     "poster":"https://img.fruugo.com/product/4/49/14441494_max.jpg"
 }
 
+### Incorrect post
+POST http://localhost:1234/movies
+Content-Type: application/json
+{
+    "title": 35,
+    "genre": "Anime",
+    "year": 1975.3,
+    "director":"Francis Ford Coppola"
+}
 
