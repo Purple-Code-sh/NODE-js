@@ -2,7 +2,7 @@ const express = require('express') // require -> commonJS
 const crypto = require('node:crypto')
 
 const movies = require('./movies.json')
-const { validateMovie, validatePartialMovie } = require('./schemas/movies')
+const { validateMovie, validatePartialMovie } = require('./schemas/movieSchema')
 
 const app = express()
 app.use(express.json())
