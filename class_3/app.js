@@ -12,8 +12,7 @@ app.disable('x-powered-by') // deshabilitar el header X-Powered-By: Express
 const ACCEPTED_ORIGINS = [
   'http://localhost:8080',
   'http://localhost:1234',
-  'https://movies.com',
-  'https://midu.dev'
+  'http://127.0.0.1:5500'
 ]
 
 // Todos los recursos que sean MOVIES se identifica con /movies
