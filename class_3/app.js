@@ -95,14 +95,14 @@ app.patch('/movies/:id', (req, res) => {
     return res.status(404).json({ message: 'Movie not found' })
   }
 
-  const updateMovie = {
+  const updatedMovie = {
     ...movies[movieIndex],
     ...result.data
   }
 
-  movies[movieIndex] = updateMovie
+  movies[movieIndex] = updatedMovie
 
-  return res.json(updateMovie)
+  return res.json(updatedMovie)
 })
 
 app.options('/movies/:id', (req, res) => {
